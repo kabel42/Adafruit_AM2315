@@ -97,11 +97,11 @@ float Adafruit_AM2315::readHumidity(void) {
  * readingings (the AM2315 manual advisess that continuous samples must be at least 2 seconds apart).
  * Calling this method avoids the double I2C request.
  */
-bool Adafruit_AM2315::readTemperatureAndHumidity(float &t, float &h) {
+bool Adafruit_AM2315::readTemperatureAndHumidity(float *t, float *h) {
     if (!readData()) return false;
 
-    t = temp;
-    h = humidity;
+    *t = temp;
+    *h = humidity;
 
     return true;
 }
